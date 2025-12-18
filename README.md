@@ -4,24 +4,24 @@ RHCSA Quick reference
 ----01. REPOS, USERS----
 
 *repo dump
-dnf list installed > /root/dnf_list.txt
+	dnf list installed > /root/dnf_list.txt
 
 *epel add
-dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm		
+	dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm		
 
 
 *
 users,groups
 
-useradd bob
+	useradd bob
 
-groupadd bobs
+	groupadd bobs
 
-useradd -m -d /shared/bobs_homedir bob		//dodjeljivanje home dira
+	useradd -m -d /shared/bobs_homedir bob		//dodjeljivanje home dira
 
-usermod -g bobs bob							//dodavanje u grupu
+	usermod -g bobs bob							//dodavanje u grupu
 
-sudo usermod -aG wheel bob					//wheel je sudoers na RH
+	sudo usermod -aG wheel bob					//wheel je sudoers na RH
 
 
 *
@@ -35,7 +35,8 @@ chgrp groupname file.txt	//grupa je owner
 *
 permissions
 
-	owner group all
+owner group all
+
 r=4
 w=2
 x=1
