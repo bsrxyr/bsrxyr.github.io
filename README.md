@@ -4,6 +4,7 @@
 <div># bsrxyr.github.io</div>
 <p><strong>Linux sysadmin quick reference &#128366;</strong></p>
 <br>
+
 <strong>------01. REPOS, USERS------</strong>
 <br>
 *repo dump
@@ -66,6 +67,37 @@ ssh bob@serverb
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 	//forsiran pass login
 <br>
 <br>
+
+<strong>------04. DHCP,DNS------</strong>
+<br>
+<br>
+DHCP
+<br>
+/etc/dnsmasq.conf 
+<br>
+user=
+group=
+interface=eth0 (ifconfig)
+dhcp-range=x.x.x.x,x.x.x.y,24h
+dhcp-option=3,x.x.x.x			adresa routera
+<br>
+<br>DNS
+<br>
+domain needed
+domain=mojadomena.local
+<br>
+
+(sve napucat u /etc/hosts file)
+<br>
+(za koju domenu je koji name server odgovoran /etc/resolv.conf)
+<br>
+<br>
+nslookup serverb.domena.local
+<br>
+dig www.algebra.hr
+<br>
+<br>
+
 <strong>------05. MAIL------</strong>
 <br>
 *<br>
@@ -79,7 +111,6 @@ domain=domena.rhcsa
 <br>
 mx-host=domena.rhcsa,mail.domena.rhcsa,50
 <br>
-
 *<br>
 POSTFIX
 <br>
