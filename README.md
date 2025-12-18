@@ -1,10 +1,8 @@
-<!DOCTYPE html>
 <html>
-<title>Linux sysadmin quick reference</title>
 <body>
 
 # bsrxyr.github.io
-RHCSA Quick reference
+Linux sysadmin quick reference
 
 ----01. REPOS, USERS----
 
