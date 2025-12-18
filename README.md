@@ -14,7 +14,7 @@ dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.r
 
 
 *
-users,groups
+USERS,GROUPS
 
 useradd bob
 
@@ -28,7 +28,7 @@ sudo usermod -aG wheel bob					//wheel je sudoers na RH
 
 
 *
-ownership
+OWNERSHIP
 
 chown bob /shared/foldername
 
@@ -36,7 +36,7 @@ chgrp groupname file.txt	//grupa je owner
 
 
 *
-permissions
+PERMISSIONS
 
 owner group all
 
@@ -59,7 +59,8 @@ Match User bob
 PasswordAuthentication yes
 
 ssh bob@serverb
-	ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 	//forsiran pass login
+
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 	//forsiran pass login
 
 
 ----05. MAIL----
@@ -77,7 +78,7 @@ mx-host=domena.rhcsa,mail.domena.rhcsa,50
 
 
 *
-postfix
+POSTFIX
 
 nano /etc/postfix/main.cf
 
@@ -102,6 +103,7 @@ nslookup mail.domena.rhcsa
 
 namistit /etc/resolv.conf  (search domena.rhcsa
 							nameserver 172.25.250.10)
+
 
 telnet mail.domena.rhcsa 25
 
