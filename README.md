@@ -97,7 +97,7 @@ mynetworks = 172.25.250/24, 127.0.0.0/8
 <br>
 mail_spool_directory = /var/spool/mail
 <br>
-*
+*<br>
 na workstationu
 <br>
 nslookup -type=mx domena.rhcsa
@@ -122,9 +122,10 @@ Tekst novog maila
 <br>
 quit
 <br>
+<br>
 *
-na mail serveru provjera<br>
-cat /var/spool/mail/mailer
+<br>na mail serveru provjera
+<br>cat /var/spool/mail/mailer
 
 
 </body>
