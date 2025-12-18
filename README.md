@@ -3,14 +3,17 @@ RHCSA Quick reference
 
 ----01. REPOS, USERS----
 
-*repo dump
+*
+repo dump
 dnf list installed > /root/dnf_list.txt
 
-*epel
+*
+epel
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 
 
-*users,groups
+*
+users,groups
 
 useradd bob
 groupadd bobs
@@ -19,14 +22,16 @@ useradd -m -d /shared/bobs_homedir bob		//dodjeljivanje home dira
 usermod -g bobs bob							//dodavanje u grupu
 sudo usermod -aG wheel bob					//wheel je sudoers na RH
 
-*ownership
+*
+ownership
 
 chown bob /shared/foldername
 
 chgrp groupname file.txt	//grupa je owner
 
 
-*permissions
+*
+permissions
   	owner group all
 r=4
 w=2
@@ -37,7 +42,8 @@ chmod 755 filename.py
 chmod -R permissions directory		//rekurzivno
 
 
-*ssh
+*
+SSH
 /etc/ssh/sshd_config
 Match User bob
 PasswordAuthentication yes
@@ -48,7 +54,8 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 
 
 ----05. MAIL----
 
-*DNS
+*
+DNS
 
 nano /etc/dnsmasq.conf
 
@@ -57,7 +64,8 @@ domain=domena.rhcsa
 mx-host=domena.rhcsa,mail.domena.rhcsa,50
 
 
-*postfix
+*
+postfix
 
 nano /etc/postfix/main.cf
 
