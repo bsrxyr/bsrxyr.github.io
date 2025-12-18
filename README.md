@@ -65,7 +65,7 @@ ssh bob@serverb
 <br>
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 	//forsiran pass login
 <br>
-
+<br>
 <strong>------05. MAIL------</strong>
 <br>
 *<br>
