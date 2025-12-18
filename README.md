@@ -1,9 +1,8 @@
 <html>
 <body>
 
-<div><strong># bsrxyr.github.io</strong></div>
-<p>
-<div>Linux sysadmin quick reference</div></p>
+<div># bsrxyr.github.io</div>
+<p><div><strong>Linux sysadmin quick reference</strong></div></p>
 
 ----01. REPOS, USERS----
 
