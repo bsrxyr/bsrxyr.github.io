@@ -2,7 +2,7 @@
 <body style="background-color:darkgrey;">
 
 <div># bsrxyr.github.io</div>
-<p><strong>Linux sysadmin quick reference</strong></p> &#128366;
+<p><strong>Linux sysadmin quick reference &#128366;</strong></p>
 <br>
 <strong>------01. REPOS, USERS------</strong>
 <br>
