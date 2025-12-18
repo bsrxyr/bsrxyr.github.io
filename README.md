@@ -14,11 +14,15 @@ dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.r
 users,groups
 
 useradd bob
+
 groupadd bobs
 
 useradd -m -d /shared/bobs_homedir bob		//dodjeljivanje home dira
+
 usermod -g bobs bob							//dodavanje u grupu
+
 sudo usermod -aG wheel bob					//wheel je sudoers na RH
+
 
 *
 ownership
@@ -30,7 +34,8 @@ chgrp groupname file.txt	//grupa je owner
 
 *
 permissions
-  	owner group all
+
+	owner group all
 r=4
 w=2
 x=1
@@ -42,8 +47,11 @@ chmod -R permissions directory		//rekurzivno
 
 *
 SSH
+
 /etc/ssh/sshd_config
+
 Match User bob
+
 PasswordAuthentication yes
 
 ssh bob@serverb
@@ -58,7 +66,9 @@ DNS
 nano /etc/dnsmasq.conf
 
 interfaces=eth0 (ifconfig)
+
 domain=domena.rhcsa
+
 mx-host=domena.rhcsa,mail.domena.rhcsa,50
 
 
@@ -68,27 +78,39 @@ postfix
 nano /etc/postfix/main.cf
 
 myhostname = mail.domena.rhcsa
+
 mydomain = domena.rhcsa
+
 myorigin = $mydomain
+
 mydestination =svedefaultno, $mydomain
+
 mynetworks = 172.25.250/24, 127.0.0.0/8
+
 mail_spool_directory = /var/spool/mail
 
 *
 na workstationu
 
 nslookup -type=mx domena.rhcsa
+
 nslookup mail.domena.rhcsa
 
 namistit /etc/resolv.conf  (search domena.rhcsa
 							nameserver 172.25.250.10)
 
 telnet mail.domena.rhcsa 25
+
 MAIL FROM: student@domena.rhcsa
+
 RCPT TO: mailer@domena.rhcsa
+
 DATA
+
 Tekst novog maila
+
 .
+
 quit
 
 *
