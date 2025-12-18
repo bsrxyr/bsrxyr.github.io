@@ -1,5 +1,5 @@
 <html>
-<body>
+<body style="background-color:darkgrey;">>
 
 <div># bsrxyr.github.io</div>
 <p><div><strong>Linux sysadmin quick reference</strong></div></p>
@@ -16,7 +16,7 @@ dnf list installed > /root/dnf_list.txt
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm		
 <br>
 
-*
+*<br>
 USERS,GROUPS
 <br>
 useradd bob
@@ -30,7 +30,7 @@ usermod -g bobs bob							//dodavanje u grupu
 sudo usermod -aG wheel bob					//wheel je sudoers na RH
 <br>
 
-*
+*<br>
 OWNERSHIP
 <br>
 chown bob /shared/foldername
@@ -38,7 +38,7 @@ chown bob /shared/foldername
 chgrp groupname file.txt	//grupa je owner
 <br>
 
-*
+*<br>
 PERMISSIONS
 <br>
 owner group all
@@ -52,7 +52,7 @@ chmod 755 filename.py
 chmod -R permissions directory		//rekurzivno
 <br>
 
-*
+*<br>
 SSH
 <br>
 /etc/ssh/sshd_config
@@ -68,7 +68,7 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 
 
 <strong>------05. MAIL------</strong>
 <br>
-*
+*<br>
 DNS
 <br>
 nano /etc/dnsmasq.conf
@@ -80,7 +80,7 @@ domain=domena.rhcsa
 mx-host=domena.rhcsa,mail.domena.rhcsa,50
 <br>
 
-*
+*<br>
 POSTFIX
 <br>
 nano /etc/postfix/main.cf
