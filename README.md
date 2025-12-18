@@ -4,7 +4,7 @@
 <div># bsrxyr.github.io</div>
 <p><div><strong>Linux sysadmin quick reference</strong></div></p>
 <br>
-<strong>----01. REPOS, USERS----</strong>
+<strong>------01. REPOS, USERS------</strong>
 <br>
 *repo dump
 <br>
@@ -66,7 +66,7 @@ ssh bob@serverb
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 	//forsiran pass login
 <br>
 
-<strong>----05. MAIL----</strong>
+<strong>------05. MAIL------</strong>
 <br>
 *
 DNS
