@@ -3,13 +3,8 @@ RHCSA Quick reference
 
 ----01. REPOS, USERS----
 
-*
-repo dump
-dnf list installed > /root/dnf_list.txt
-
-*
-epel
-dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf list installed > /root/dnf_list.txt		//repo dump
+dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm		//epel add
 
 
 *
