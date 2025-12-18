@@ -1,3 +1,12 @@
+ <!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+
 # bsrxyr.github.io
 RHCSA Quick reference
 
@@ -122,3 +131,7 @@ quit
 *
 na mail serveru provjera
 cat /var/spool/mail/mailer
+
+
+</body>
+</html> 
