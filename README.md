@@ -70,6 +70,19 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 
 <br>
 <br>
 
+<strong>------02. DISKS,LOGS------</strong>
+<br>
+fdisk (w piše promjene)
+<br>
+lsblk --fs (show filesystem)
+<br>
+mkfs.xfs
+mkfs.ext4
+<br>
+mkswap
+swapon
+
+<br>
 <strong>------04. DHCP,DNS------</strong>
 <br>
 <br>
