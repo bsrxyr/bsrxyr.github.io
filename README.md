@@ -43,7 +43,8 @@ usermod -g bobs bob							//dodavanje u grupu
 <br>
 sudo usermod -aG wheel bob					//wheel je sudoers na RH
 <br>
-
+cat /etc/group    //pokazat grupe
+<br>
 *<br>
 OWNERSHIP
 <br>
@@ -79,8 +80,9 @@ ssh bob@serverb
 <br>
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 	//forsiran pass login
 <br>
+ssh-copy-id student@serverb		//sa servera kopiranje keya
 <br>
-
+<br>
 <strong>------02. DISKS------</strong>
 <br>
 <br>
@@ -101,6 +103,8 @@ swapon
 <br>
 UUID=881e856c-37b1-41e3-b009-ad526e46d987 /archive xfs defaults  0 0		//fstab
 <br>
+swap swap defaults 0 0		//za swap
+<br>
 <br>
 <strong>------03. TIME, LOG------</strong>
 <br>
@@ -110,6 +114,8 @@ vidi lab03
 <br>
 <br>
 EDITOR=nano crontb -u student -e  //nanom otvoren studentov crontab
+<br>
+journalctl --since "17:00" --until "5 minutes ago"
 <br>
 <br>
 <strong>------04. DHCP,DNS------</strong>
@@ -256,7 +262,9 @@ server {
 <br>	
 <br>	
 sudo setenforce 0		//obavezno za nginx
-
-
+<br>	
+<br>
+curl http://web.apache.local	//brzi dokaz websitea
+<br>
 </body>
 </html> 
