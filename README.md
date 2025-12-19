@@ -16,6 +16,8 @@ dnf list installed > /root/dnf_list.txt
 <br>
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm		
 <br>
+dnf history info  //zadnji instalirani paket
+<br>
 
 *<br>
 USERS,GROUPS
