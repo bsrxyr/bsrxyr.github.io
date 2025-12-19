@@ -99,6 +99,9 @@ mkswap
 swapon
 <br>
 <br>
+UUID=881e856c-37b1-41e3-b009-ad526e46d987 /archive xfs defaults  0 0		//fstab
+<br>
+<br>
 <strong>------03. TIME, LOG------</strong>
 <br>
 timedatectl set-timezone Europe/Zagreb
