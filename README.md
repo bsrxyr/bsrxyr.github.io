@@ -97,7 +97,17 @@ mkfs.ext4
 mkswap
 <br>
 swapon
-
+<br>
+<br>
+<strong>------03. TIME, LOG------</strong>
+<br>
+timedatectl set-timezone Europe/Zagreb
+<br>
+vidi lab03
+<br>
+<br>
+EDITOR=nano crontb -u student -e  //nanom otvoren studentov crontab
+<br>
 <br>
 <strong>------04. DHCP,DNS------</strong>
 <br>
