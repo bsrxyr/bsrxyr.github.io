@@ -96,10 +96,15 @@ DHCP
 /etc/dnsmasq.conf 
 <br>
 user=
+<br>
 group=
+<br>
 interface=eth0 (ifconfig)
+<br>
 dhcp-range=x.x.x.x,x.x.x.y,24h
+<br>
 dhcp-option=3,x.x.x.x			adresa routera
+<br>
 <br>
 <br>DNS
 <br>
@@ -109,7 +114,7 @@ domain=mojadomena.local
 
 (sve napucat u /etc/hosts file)
 <br>
-(za koju domenu je koji name server odgovoran /etc/resolv.conf)
+(na klijentu za koju domenu je koji name server odgovoran /etc/resolv.conf)
 <br>
 <br>
 nslookup serverb.domena.local
