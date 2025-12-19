@@ -4,7 +4,18 @@
 <div># bsrxyr.github.io</div>
 <p><strong>Linux sysadmin quick reference &#128366;</strong></p>
 <br>
+bceravi
+https://student.algebra.hr
+<br>
+X.X.Va62yvpJ}'x#
+<br>
+bseravic
+https://rha.ole.redhat.com/rha/app/
+<br>
+%ZtrF6Ykh]X=hQV
+<br>
 
+<br>
 <strong>------01. REPOS, USERS------</strong>
 <br>
 *repo dump
