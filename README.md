@@ -207,6 +207,43 @@ quit
 <br>na mail serveru provjera
 <br>cat /var/spool/mail/mailer
 
+<br>
+
+<strong>------06. WEBSRV------</strong>
+<br>
+<br>
+Apache (httpd)
+<br>
+/etc/httpd/conf.d
+<br>
+<br>
+<VirtualHost *:80>
+<br>
+ServerName www.apache.local
+<br>
+DocumentRoot /var/www/web_apache_local
+<br>
+</VirtualHost>
+<br>
+<br>
+<br>
+
+Nginx
+<br>
+/etc/nginx/nginx.conf
+<br>
+server {
+<br>
+			root /var/www/www_nginx_local/;
+<br>			
+			server name www.nginx.local;
+<br>
+		}
+<br>
+<br>	
+<br>	
+sudo setenforce 0		//obavezno za nginx
+
 
 </body>
 </html> 
