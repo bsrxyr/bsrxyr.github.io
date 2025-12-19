@@ -156,7 +156,7 @@ ip ro			(defaultna ruta)
 <br>
 timedatectl set-ntp false		//ugasit ntp
 <br>
-
+<br>
 <strong>------05. MAIL------</strong>
 <br>
 *<br>
