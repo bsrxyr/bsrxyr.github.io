@@ -70,7 +70,7 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no bob@serverb 
 <br>
 <br>
 
-<strong>------02. DISKS,LOGS------</strong>
+<strong>------02. DISKS------</strong>
 <br>
 <br>
 fdisk (w piše promjene)
