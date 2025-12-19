@@ -133,6 +133,19 @@ nslookup serverb.domena.local
 dig www.algebra.hr
 <br>
 <br>
+<br>
+route -n 		(defaultna ruta)
+<br>
+ip ro			(defaultna ruta)
+<br>
+<br>
+/etc/hostname
+<br>
+/etc/hosts
+<br>
+<br>
+timedatectl set-ntp false		//ugasit ntp
+<br>
 
 <strong>------05. MAIL------</strong>
 <br>
