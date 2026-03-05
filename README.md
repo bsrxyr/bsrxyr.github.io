@@ -205,8 +205,6 @@ stratis blockdev list
 stratis fs create --size 10GiB pool1 nameodpoola</pre>
 
 <br>
-<br>
-<br>
 ------08. NFS------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 NA SERVERA
