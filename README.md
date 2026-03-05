@@ -179,6 +179,8 @@ sudo setenforce 0 //obavezno za nginx
 curl http://web.apache.local //brzi dokaz websitea 
 <br>
 <br>
+<br>
+<br>
 ------07. LVM,STRATIS------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 ****LVM****
