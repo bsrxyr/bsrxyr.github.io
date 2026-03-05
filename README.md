@@ -302,7 +302,65 @@ pg_dump rhcsa_db &gt;&gt; rhcsa_db.sql
 https://www.tecmint.com/install-phpmyadmin-rhel-centos-fedora-linux/
 
 php imagix paket ne postoji za vježbe, wtf (NE TREBA)</pre>
+------11. SELINUX, FW------
+<pre style='color:#cfcfc2;background-color:#232629;'>
+SELinux i Firewall
 
+getenforce			provjera stanja selinuxa
+setenforce			postavlja stanje selinuxa
+
+/etc/selinux/congif	config od selinuxa, not much, za on boot ponašanje
+
+firewall-cmd --reload
+firewall-cmd --set-target=%%REJECT%%
+firewall-cmd --add-service http --zone public
+firewall-cmd --runtime-to-permanent
+
+
+sudo nano /etc/httpd (u confu namistit listen port na neki drugi od 80, npr 123 i folder custom direktorija -kopirat dva bloka koja su već za /var/www pa prominit)
+
+sudo semanage port -l
+semanage port -a -t http_port_t -p tcp 123
+sudo semanage port -l |grep http_port_t
+sudo firewall-cmd --add-port 123/tcp --zone public
+
+
+sudo nano /etc/httpd/conf.d/custom_dir.conf
+&lt;VirtualHost *:123&gt;
+	ServerName severa
+	Documentroot /app/custom_dir
+&lt;/VirtualHost&gt;
+
+provjera s klijenta
+curl http://servera
+curl http://servera:123
+
+sudo ls -laZ /var/www/
+sudo ls -laZ /app
+
+sudo semanage fcontext -a -t httpd_sys_content_t &quot;/app(/.*)?&quot; 
+sudo restorecon -Rv /app</pre>
+------12. Procesi, REGEX------
+<pre style='color:#cfcfc2;background-color:#232629;'>
+procesi
+-------
+
+sudo systemctl enable --now mysqld
+
+faux
+pidof mysqld
+
+/etc/security/limits.conf
+prlimit			za dokazat da je postavljen neki limit
+
+
+
+regex
+-----
+
+grep 'Accepted publickey' /var/log/secure
+grep -i 'Accepted publickey' /var/log/secure 			case not sensitive
+sudo cat /var/log/secure | grep 'Accepted publickey for' | cut -d &quot; &quot; -f11 | sort | uniq -c	 ispisat samo ip adrese (tj 11. blok odvojen razmakom) i pobrojat</pre>
 <br>
 
 -------------------------------------------------------------------------
