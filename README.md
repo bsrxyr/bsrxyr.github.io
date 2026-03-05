@@ -46,7 +46,83 @@ dnf install stratisd stratis-cli
 systemctl start stratisd
 <br>
 
-<br> 
+<br>
+<iframe srcdoc="
+  <h1>Hello!</h1>
+  <p>
+  ------05. MAIL------
+<br>
+*
+<br>
+DNS
+<br>
+nano /etc/dnsmasq.conf
+<br>
+interfaces=eth0 (ifconfig)
+<br>
+domain=domena.rhcsa
+<br>
+mx-host=domena.rhcsa,mail.domena.rhcsa,50
+<br>
+<br>
+*
+<br>
+POSTFIX
+<br>
+nano /etc/postfix/main.cf
+<br>
+myhostname = mail.domena.rhcsa
+<br>
+mydomain = domena.rhcsa
+<br>
+myorigin = $mydomain
+<br>
+mydestination =svedefaultno, $mydomain
+<br>
+mynetworks = 172.25.250/24, 127.0.0.0/8
+<br>
+mail_spool_directory = /var/spool/mail
+<br>
+<br>
+*
+<br>
+na workstationu
+<br>
+nslookup -type=mx domena.rhcsa
+<br>
+nslookup mail.domena.rhcsa
+<br>
+namistit /etc/resolv.conf (search domena.rhcsa
+<br>
+nameserver 172.25.250.10)
+<br>
+<br>
+telnet mail.domena.rhcsa 25
+<br>
+MAIL FROM: student@domena.rhcsa
+<br>
+RCPT TO: mailer@domena.rhcsa
+<br>
+DATA
+<br>
+Tekst novog maila
+<br>
+.
+<br>
+quit
+<br>
+<br>
+*
+<br>
+na mail serveru provjera
+<br>
+cat /var/spool/mail/mailer
+<br>
+<br>
+<br>
+   </p>
+" width="100%" height="300" style="border:none;"></iframe>
+
 ------05. MAIL------
 <br>
 *
