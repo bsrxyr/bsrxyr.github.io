@@ -65,6 +65,8 @@ mx-host=domena.rhcsa,mail.domena.rhcsa,50
 <br>
 POSTFIX
 <br>
+sudo dnf install postfix -y
+<br>
 nano /etc/postfix/main.cf
 <br>
 myhostname = mail.domena.rhcsa
