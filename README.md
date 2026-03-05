@@ -255,6 +255,55 @@ pa u autofs_desktop.direct
 
 systemct restart autofs</pre>
 <br>
+------09. BAZE------
+<pre style='color:#cfcfc2;background-color:#232629;'>
+dnf install mysql-server
+systemctl enable --now mysqld
+mysql -uroot -p
+
+show databases;
+create database mojabaza;
+use mojabaza;
+show tables;
+create table users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50), surname VARCHAR(50));
+show tables;
+show columns in users;
+insert into users (name, surname) values ('Alice', 'Admin'), ('Bob', 'RHCSA');
+select name from users;
+select * from users;
+select name from users where id = 1;
+
+create user 'local_db_admin'@'localhost' identified by 'Password123';
+grant all privileges on mojabaza.* to 'local_db_admin'@'localhost';
+
+ili
+grant select, insert on mojabaza.users to 'local_db_admin'@'localhost';
+
+ili
+grant all pivileges on *.* to 'local_db_admin'@'%';
+
+
+mysqldump -uroot -p test &gt;&gt; test_db.sql
+
+------------------------------------------
+
+dnf install postgresql-server
+sudo /usr/bin/postgresql-setup --initdb
+sudo su - postgres
+psql
+
+create database rhcsa_db;
+\l
+\c rhcsa_db;
+pg_dump rhcsa_db &gt;&gt; rhcsa_db.sql
+
+
+----------------------------------------
+
+https://www.tecmint.com/install-phpmyadmin-rhel-centos-fedora-linux/
+
+php imagix paket ne postoji za vježbe, wtf (NE TREBA)</pre>
+
 <br>
 
 -------------------------------------------------------------------------
