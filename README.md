@@ -13,6 +13,19 @@ https://rha.ole.redhat.com/rha/app/
 <br>
 <br>
 <br>
+workstation 172.25.250.9
+<br>
+servera 172.25.250.10
+<br>
+serverb 172.25.250.11
+<br>
+<br>
+root:redhat
+<br>
+student:student
+<br>
+<br>
+<br>
 ------05. MAIL------
 <br>
 *
