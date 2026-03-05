@@ -12,6 +12,22 @@ https://rha.ole.redhat.com/rha/app/
 %ZtrF6Ykh]X=hQV
 <br>
 <br>
+ISHOD 5		EMAIL					5/7
+<br>
+ISHOD 6		WEBSERVER				3/7
+<br>
+ISHOD 7	L07	LVM,STRATIS
+<br>
+		L08	NFS						3/7
+<br>
+ISHOD 8	L09	DATABASES
+<br>
+		L10	DBs, APPS				3/7
+<br>
+ISHOD 9	L11	SELINUX, FIREWALL		
+<br>
+    L12	PROCESS MNGMT, REGEX	8/22
+<br>
 <br>
 workstation 172.25.250.9
 <br>
@@ -29,7 +45,14 @@ sudo systemctl start cockpit.socket
 <br>
 https://<your-server-ip>:9090
 <br>
+<br> 
+dnf install cockpit-storaged
 <br>
+dnf install stratisd stratis-cli
+systemctl start stratisd
+<br>
+
+<br> 
 ------05. MAIL------
 <br>
 *
