@@ -25,6 +25,10 @@ root:redhat
 student:student
 <br>
 <br>
+sudo systemctl start cockpit.socket
+<br>
+https://<your-server-ip>:9090
+<br>
 <br>
 ------05. MAIL------
 <br>
