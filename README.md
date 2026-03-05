@@ -179,10 +179,37 @@ sudo setenforce 0 //obavezno za nginx
 curl http://web.apache.local //brzi dokaz websitea 
 <br>
 <br>
-<br>
-<br>
+------07. LVM,STRATIS------
+<pre style='color:#cfcfc2;background-color:#232629;'>
+****LVM****
+
+lvs
+vgs
+
+lvextend -l +100%FREE
+pa  	resize2fs
+ili		xfsgrowfs
+
+od diskova physical volume pa volume grupe pa lvm particije
 
 
+
+****Stratis****
+
+dnf install stratisd stratis-cli
+
+je Redhat verzija LVM-a,
+poolovi su volume grupe
+
+stratis pool create pool1 /dec/vdb /dev/vdc
+stratis pool list
+stratis blockdev list
+
+stratis fs create --size 10GiB pool1 nameodpoola</pre>
+
+<br>
+<br>
+<br>
 
 
 -------------------------------------------------------------------------
