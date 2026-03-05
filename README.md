@@ -47,9 +47,7 @@ systemctl start stratisd
 <br>
 <br>
 ------05. MAIL------
-<br>
 <pre style='color:#cfcfc2;background-color:#232629;'>
-
 *
 DNS
 
@@ -58,7 +56,6 @@ nano /etc/dnsmasq.conf
 interfaces=eth0 (ifconfig)
 domain=domena.rhcsa
 mx-host=domena.rhcsa,mail.domena.rhcsa,50
-
 *
 postfix
 
@@ -70,7 +67,6 @@ myorigin = $mydomain
 mydestination =svedefaultno, $mydomain
 mynetworks = 172.25.250/24, 127.0.0.0/8
 mail_spool_directory = /var/spool/mail
-
 *
 na workstationu
 
@@ -87,18 +83,11 @@ DATA
 Tekst novog maila
 .
 quit
-
 *
 na mail serveru provjera
 cat /var/spool/mail/mailer</pre>
-
-*
 <br>
-
-<br>
-
 ------06. WEBSRV------
-<br>
 <pre style='color:#cfcfc2;background-color:#232629;'>
 sudo dnf install httpd -y
 
