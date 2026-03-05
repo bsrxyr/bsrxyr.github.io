@@ -254,7 +254,6 @@ pa u autofs_desktop.direct
 /home/student/Desktop/Dijeljenjo	-rw,sync	172.25.250.10:/data/nfs/share1
 
 systemct restart autofs</pre>
-<br>
 ------09. BAZE------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 dnf install mysql-server
