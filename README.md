@@ -48,6 +48,54 @@ systemctl start stratisd
 <br>
 ------05. MAIL------
 <br>
+<pre style='color:#cfcfc2;background-color:#232629;'>
+
+*
+DNS
+
+nano /etc/dnsmasq.conf
+
+interfaces=eth0 (ifconfig)
+domain=domena.rhcsa
+mx-host=domena.rhcsa,mail.domena.rhcsa,50
+
+
+*
+postfix
+
+nano /etc/postfix/main.cf
+
+myhostname = mail.domena.rhcsa
+mydomain = domena.rhcsa
+myorigin = $mydomain
+mydestination =svedefaultno, $mydomain
+mynetworks = 172.25.250/24, 127.0.0.0/8
+mail_spool_directory = /var/spool/mail
+
+
+*
+na workstationu
+
+nslookup -type=mx domena.rhcsa
+nslookup mail.domena.rhcsa
+
+namistit /etc/resolv.conf  (search domena.rhcsa
+							nameserver 172.25.250.10)
+
+telnet mail.domena.rhcsa 25
+MAIL FROM: student@domena.rhcsa
+RCPT TO: mailer@domena.rhcsa
+DATA
+Tekst novog maila
+.
+quit
+
+
+*
+na mail serveru provjera
+cat /var/spool/mail/mailer</pre>
+
+
 *
 <br>
 DNS
