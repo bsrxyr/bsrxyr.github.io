@@ -37,7 +37,7 @@ student:student
 <br>
 sudo systemctl start cockpit.socket
 <br>
-https://<your-server-ip>:9090
+https://server-ip:9090
 <br>
 <br> 
 dnf install cockpit-storaged
