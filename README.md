@@ -121,7 +121,6 @@ cat /var/spool/mail/mailer
 
 ------06. WEBSRV------
 <br>
-<br>
 <pre style='color:#cfcfc2;background-color:#232629;'>
 sudo dnf install httpd -y
 
