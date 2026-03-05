@@ -191,7 +191,6 @@ ili		xfsgrowfs
 od diskova physical volume pa volume grupe pa lvm particije
 
 
-
 ****Stratis****
 
 dnf install stratisd stratis-cli
@@ -207,6 +206,55 @@ stratis fs create --size 10GiB pool1 nameodpoola</pre>
 
 <br>
 <br>
+------08. NFS------
+<pre style='color:#cfcfc2;background-color:#232629;'>
+NA SERVERA
+
+-dižemo NFS server, svugdi je instaliran
+
+systemctl status nfs-server.service
+systemctl enable --now nfs-server.service
+
+/etc/nfs.conf		(ništa pametno)
+/etc/exports		(prazan file, pogledaj man example, unutra idu pravila u 2 stupca kako slijedi)
+
+/data/nfs/share1	172.25.250.0/24(rw,no_root_squash)
+/data/nfs/share2	172.25.250.11(rw)
+/data/nfs/share3	172.25.250.9(rw)
+/data/nfs/share4	*(ro)
+
+
+systemctl reload nfs-server.service
+
+sudo exportfs -rav
+
+
+NA SERVERB
+						ubit firewall
+sudo mount -t nfs 172.25.250.10:/data/nfs/share1 /mnt/share1
+df -hPT					pokazuje mountane stvari
+
+
+
+AUTOFS dio priče
+
+dnf install autofs
+dnf install nfs-utils
+
+man automount		vidi example
+					knjiga redhat2, poglavlje 9
+
+
+na klijentu	/etc/auto.master			includa neki file (ovaj doli)
+/etc/auto.master.d
+
+pa u taj neki file ide:
+/home/student/Desktop	/etc/autofs_desktop.direct
+
+pa u autofs_desktop.direct
+/home/student/Desktop/Dijeljenjo	-rw,sync	172.25.250.10:/data/nfs/share1
+
+systemct restart autofs</pre>
 <br>
 
 
