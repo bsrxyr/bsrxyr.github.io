@@ -154,7 +154,6 @@ apache&lt;VirtualHost *:80&gt;
 # Reload Apache
 sudo systemctl reload httpd
 </pre>
-<br>
 Nginx
 <br>
 /etc/nginx/nginx.conf
