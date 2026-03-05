@@ -122,15 +122,70 @@ cat /var/spool/mail/mailer
 ------06. WEBSRV------
 <br>
 <br>
-Apache (httpd)
-<br>
-/etc/httpd/conf.d
-<br>
-<br>
+<pre style='color:#cfcfc2;background-color:#232629;'>
+sudo dnf install httpd -y
 
-ServerName www.apache.local
-<br>
-DocumentRoot /var/www/web_apache_local
+
+# Create Document Root Directories
+
+sudo mkdir -p /var/www/site1/public_html
+sudo mkdir -p /var/www/site2/public_html
+
+# Set ownership
+sudo chown -R apache:apache /var/www/site1
+sudo chown -R apache:apache /var/www/site2
+
+# Set permissions
+sudo chmod -R 755 /var/www/site1
+sudo chmod -R 755 /var/www/site2
+
+
+# Create Test Index Pages
+echo &quot;&lt;h1&gt;Site 1 is working&lt;/h1&gt;&quot; | sudo tee /var/www/site1/public_html/index.html
+echo &quot;&lt;h1&gt;Site 2 is working&lt;/h1&gt;&quot; | sudo tee /var/www/site2/public_html/index.html
+
+
+# Create Virtual Host Config Files
+Create /etc/httpd/conf.d/site1.conf:
+
+apache&lt;VirtualHost *:80&gt;
+    ServerName   site1.example.com
+    ServerAlias  www.site1.example.com
+    DocumentRoot /var/www/site1/public_html
+
+    ErrorLog  /var/log/httpd/site1_error.log
+    CustomLog /var/log/httpd/site1_access.log combined
+
+    &lt;Directory /var/www/site1/public_html&gt;
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+
+
+
+# Create /etc/httpd/conf.d/site2.conf:
+
+apache&lt;VirtualHost *:80&gt;
+    ServerName   site2.example.com
+    ServerAlias  www.site2.example.com
+    DocumentRoot /var/www/site2/public_html
+
+    ErrorLog  /var/log/httpd/site2_error.log
+    CustomLog /var/log/httpd/site2_access.log combined
+
+    &lt;Directory /var/www/site2/public_html&gt;
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+
+
+
+# Reload Apache
+sudo systemctl reload httpd
+</pre>
+
 <br>
 <br>
 
