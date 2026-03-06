@@ -46,7 +46,7 @@ dnf install stratisd stratis-cli
 systemctl start stratisd
 <br>
 <br>
-sudo systemctl stop firewalld
+sudo systemctl stop firewalld<br>
 sudo chattr -i /etc/resolv.conf
 <br>
 <br>
