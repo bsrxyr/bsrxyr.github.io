@@ -46,6 +46,10 @@ dnf install stratisd stratis-cli
 systemctl start stratisd
 <br>
 <br>
+sudo systemctl stop firewalld
+sudo chattr -i /etc/resolv.conf
+<br>
+<br>
 ------05. MAIL------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 *
