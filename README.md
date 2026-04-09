@@ -240,7 +240,7 @@ sudo cat /var/log/secure | grep 'Accepted publickey for' | cut -d &quot; &quot; 
 <br>
 <br>
 ------04. DHCP,DNS------
-
+<pre style='color:#cfcfc2;background-color:#232629;'>
 DHCP
 /etc/dnsmasq.conf
 user=
@@ -265,3 +265,4 @@ ip ro (defaultna ruta)
 
 /etc/hostname
 /etc/hosts
+</pre>
