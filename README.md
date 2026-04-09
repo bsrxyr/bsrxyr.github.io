@@ -41,16 +41,14 @@ sudo chattr -i /etc/resolv.conf
 ------05. MAIL------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 1. slaganje DNS-a na mail serveru
-
+	
 	sudo nano /etc/hosts
-
 172.25.250.10 servera servera.domena.local
 172.25.250.11 serverb serverb.domena.local mail mail.domena.local	//mail exchanger DNS zapis
 172.25.250.9 workstation workstation.domena.local
 
 
 	sudo nano /etc/dnsmasq.conf
-
 interface=eth0
 bind-interfaces
 domain=domena.local
@@ -61,7 +59,6 @@ mx-host=domena.local,mail.domena.local,50
 
 		dnf install postfix
 		sudo nano /etc/postfix/main.cf
-
 myhostname = mail.domena.local
 mydomain = domena.local
 myorigin = $mydomain
@@ -76,7 +73,6 @@ smtpd_banner = $myhostname ESMTP $mail_name RHCSA Mikrokvalifikacija	//opcionaln
 3. na workstationu
 
 		sudo nano /etc/resolv.conf
-
 search domena.local
 nameserver 172.25.250.10
 
@@ -84,7 +80,6 @@ nameserver 172.25.250.10
 //pa provjeriti mail exchanger zapis
 
 	nslookup -type=mx domena.local
-
 Name: mail.domena.local
 Address: 172.25.250.11
 
