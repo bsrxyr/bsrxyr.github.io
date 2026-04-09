@@ -149,16 +149,81 @@ sudo restorecon -Rv /app</pre>
 <br>
 ------12. Procesi, REGEX------
 <pre style='color:#cfcfc2;background-color:#232629;'>
-procesi
--------
+Count linija koje počinju s dummy
+grep -c "^dummy" /usr/share/dict/words
 
-sudo systemctl enable --now mysqld
 
-faux
-pidof mysqld
+Count linija koje završavaju s dummy
+grep -c "dummy$" /usr/share/dict/words
 
-/etc/security/limits.conf
-prlimit			za dokazat da je postavljen neki limit
+
+Print all words containing dummy with line number
+grep -n "dummy" /usr/share/dict/words
+
+
+Print all words 10 characters long
+grep "^.\{10\}$" /usr/share/dict/words
+
+---------------------
+
+Find all files ending in ".config"
+find / -name "*.config"
+
+Search in a specific directory:
+find /etc -name "*.config"
+
+Search only files (exclude directories):
+find / -type f -name "*.config"
+
+Case-insensitive match
+find / -type f -iname "*.config"
+
+----------------------
+
+Show status of PROCESSNAME
+ps -aux | grep PROCESSNAME
+
+
+Show all PROCESSNAME of user root sortirano
+ps -u root | sort
+
+
+Set PROCESSNAME priority to lowest
+sudo ps -aux | grep sshd | awk '{print $2}' | head -1	//gets PID
+sudo renice +19 -p $(ps -aux | grep sshd | awk '{print $2}' | head -1)
+
+
+Priority to highest
+-20
+
+
+Show priority(niceness)
+sudo ps -aux | grep PROCESSNAME
+
+----------------------
+
+
+Set max number of files "student" can open to 69
+
+sudo nano /etc/security/limits.conf
+		student    hard    nofile    69
+		student    soft    nofile    69
+
+//provjera: su - student -c "ulimit -n"
+
+//Note: student must log out and back in for the new limits to apply. 
+
+//prlimit			za dokazat da je postavljen neki limit
+
+//Also make sure /etc/pam.d/system-auth or /etc/pam.d/password-auth contains:
+session required pam_limits.so
+
+
+
+Set priority of all "student" run process to 9
+
+sudo nano /etc/security/limits.conf
+		student	-	priority	-9
 
 
 
