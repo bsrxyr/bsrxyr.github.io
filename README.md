@@ -12,9 +12,9 @@ https://rha.ole.redhat.com/rha/app/
 %ZtrF6Ykh]X=hQV
 <br>
 <br>
-ISHOD 5		EMAIL					5/7
+ISHOD 5		EMAIL						5/7
 <br>
-ISHOD 9	L11,L12	SELINUX,FW,PROCESS,REGEX	8/22
+ISHOD 9		SELINUX,FW,PROCESS,REGEX	8/22
 <br>
 <br>
 workstation 172.25.250.9
@@ -40,47 +40,71 @@ sudo chattr -i /etc/resolv.conf
 <br>
 ------05. MAIL------
 <pre style='color:#cfcfc2;background-color:#232629;'>
-*
-DNS
+1. slaganje DNS-a na mail serveru
 
-nano /etc/dnsmasq.conf
+	sudo nano /etc/hosts
 
-interfaces=eth0 (ifconfig)
-domain=domena.rhcsa
-mx-host=domena.rhcsa,mail.domena.rhcsa,50
+172.25.250.10 servera servera.domena.local
+172.25.250.11 serverb serverb.domena.local mail mail.domena.local	//mail exchanger DNS zapis
+172.25.250.9 workstation workstation.domena.local
 
-*
-postfix
 
-nano /etc/postfix/main.cf
+	sudo nano /etc/dnsmasq.conf
 
-myhostname = mail.domena.rhcsa
-mydomain = domena.rhcsa
+interface=eth0
+bind-interfaces
+domain=domena.local
+mx-host=domena.local,mail.domena.local,50
+
+
+2. slaganje postfixa na mail serveru
+
+		dnf install postfix
+		sudo nano /etc/postfix/main.cf
+
+myhostname = mail.domena.local
+mydomain = domena.local
 myorigin = $mydomain
-mydestination =svedefaultno, $mydomain
-mynetworks = 172.25.250/24, 127.0.0.0/8
+inet_interfaces = all
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain	//otkomentiramo 2.liniju
+mynetworks_style = subnet
+mynetworks = 172.25.250.0/24, 127.0.0.0/8
 mail_spool_directory = /var/spool/mail
+smtpd_banner = $myhostname ESMTP $mail_name RHCSA Mikrokvalifikacija	//opcionalno
 
-*
-na workstationu
 
-nslookup -type=mx domena.rhcsa
-nslookup mail.domena.rhcsa
+3. na workstationu
 
-namistit /etc/resolv.conf  (search domena.rhcsa
-							nameserver 172.25.250.10)
+		sudo nano /etc/resolv.conf
 
-telnet mail.domena.rhcsa 25
-MAIL FROM: student@domena.rhcsa
-RCPT TO: mailer@domena.rhcsa
-DATA
-Tekst novog maila
-.
-quit
+search domena.local
+nameserver 172.25.250.10
 
-*
-na mail serveru provjera
-cat /var/spool/mail/mailer</pre>
+
+//pa provjeriti mail exchanger zapis
+
+	nslookup -type=mx domena.local
+
+Name: mail.domena.local
+Address: 172.25.250.11
+
+
+//pa telnetom poslati mail
+
+	telnet mail.domena.local 25
+	MAIL FROM: student@domena.local
+	RCPT TO: mailer@domena.local
+	DATA
+	Evo sadrzaj novog maila
+	.
+	quit
+
+
+4. na mail serveru provjera
+
+		sudo cat /var/spool/mail
+		sudo cat /var/spool/mail/mailer
+</pre>
 <br>
 <br>
 ------11. SELINUX, FW------
@@ -140,7 +164,9 @@ prlimit			za dokazat da je postavljen neki limit
 
 regex
 -----
-
+https://regex101.com/
+https://regex-generator.olafneumann.org
+	
 grep 'Accepted publickey' /var/log/secure
 grep -i 'Accepted publickey' /var/log/secure 			case not sensitive
 sudo cat /var/log/secure | grep 'Accepted publickey for' | cut -d &quot; &quot; -f11 | sort | uniq -c	 ispisat samo ip adrese (tj 11. blok odvojen razmakom) i pobrojat</pre>
