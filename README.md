@@ -42,17 +42,18 @@ sudo chattr -i /etc/resolv.conf
 <pre style='color:#cfcfc2;background-color:#232629;'>
 1. slaganje DNS-a na mail serveru
 	
-	sudo nano /etc/hosts
-172.25.250.10 servera servera.domena.local
-172.25.250.11 serverb serverb.domena.local mail mail.domena.local	//mail exchanger DNS zapis
-172.25.250.9 workstation workstation.domena.local
-
-
 	sudo nano /etc/dnsmasq.conf
 interface=eth0
 bind-interfaces
 domain=domena.local
 mx-host=domena.local,mail.domena.local,50
+
+	sudo nano /etc/hosts
+172.25.250.10 servera.domena.local
+172.25.250.11 serverb.domena.local mail mail.domena.local	//mail exchanger DNS zapis
+172.25.250.9  workstation.domena.local
+
+Pokreni servis!
 
 
 2. slaganje postfixa na mail serveru
@@ -68,6 +69,8 @@ mynetworks_style = subnet
 mynetworks = 172.25.250.0/24, 127.0.0.0/8
 mail_spool_directory = /var/spool/mail
 smtpd_banner = $myhostname ESMTP $mail_name RHCSA Mikrokvalifikacija	//opcionalno
+
+Pokreni servis!
 
 
 3. na workstationu
@@ -95,10 +98,9 @@ Address: 172.25.250.11
 	quit
 
 
-4. na mail serveru provjera
+4. na mail serveru provjera da je mail stiga
 
-		sudo cat /var/spool/mail
-		sudo cat /var/spool/mail/mailer
+		sudo cat /var/spool/mail/username
 </pre>
 <br>
 <br>
@@ -152,11 +154,11 @@ Count linija koje završavaju s dummy
 grep -c "dummy$" /usr/share/dict/words
 
 
-Print all words containing dummy with line number
+Print linija containing dummy with line number
 grep -n "dummy" /usr/share/dict/words
 
 
-Print all words 10 characters long
+Print linija 10 characters long
 grep "^.\{10\}$" /usr/share/dict/words
 
 ---------------------
@@ -222,8 +224,8 @@ sudo nano /etc/security/limits.conf
 
 
 
-regex
------
+regex old shit
+--------------
 https://regex101.com/
 https://regex-generator.olafneumann.org
 	
