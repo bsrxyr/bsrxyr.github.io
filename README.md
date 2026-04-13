@@ -36,6 +36,7 @@ https://server-ip:9090
 <br>
 sudo systemctl stop firewalld<br>
 sudo chattr -i /etc/resolv.conf
+setenforce 0
 <br>
 <br>
 ------05. MAIL------
