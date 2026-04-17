@@ -186,6 +186,9 @@ grep 't[aeiou]sh'
 //red počinje slovom t, pa samoglasnik, pa sh
 grep '^t[aeiou]sh'
 
+//grepaj linije s brojevima od 80-99
+grep -E "\b(8[0-9]|9[0-9])\b"
+
 //Izdvajanje IP adresa iz datoteka.txt
 grep -E "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" datoteka.txt
 
