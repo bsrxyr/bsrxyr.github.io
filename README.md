@@ -113,27 +113,19 @@ sudo restorecon -R -v "/var/custom_dir"	//uvik ovo nakon promjene fcontexta!
 <pre style='color:#cfcfc2;background-color:#232629;'>
 Limiti se učitavaju prilikom logina! (odradi logout pa login)
 
-//Show status of PROCESSNAME
+//Show status (including priority) of PROCESSNAME
 ps -aux | grep PROCESSNAME
-
 
 //Show all PROCESSNAME of user root sortirano
 ps -u root | sort
 
-
-//Set PROCESSNAME priority to lowest
+//Set running PROCESSNAME priority to lowest
 sudo ps -aux | grep sshd | awk '{print $2}' | head -1	//gets PID
 sudo renice -n 19 -p PID
 
-
 //highest priority je -20
 
-
-//Show priority(niceness)
-sudo ps -aux | grep PROCESSNAME
-
-
-
+	
 //Set max number of files "student" can open to 69
 sudo nano /etc/security/limits.conf
 		student    hard    nofile    69
@@ -145,10 +137,10 @@ sudo nano /etc/security/limits.conf
 //make sure /etc/pam.d/system-auth or /etc/pam.d/password-auth contains: session required pam_limits.so
 
 
-
-//Set priority of all "student" run process to 9
+//Set priority of all "student" run process to 9 trajno
 sudo nano /etc/security/limits.conf
 		student	-	priority	-9
+
 </pre>
 <br>
 ------REGEX------
