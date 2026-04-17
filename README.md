@@ -212,4 +212,7 @@ find / -type f -name "*.config"
 
 //Not case sensitive match
 find / -type f -iname "*.config"
+
+//find u /etc sve .conf fajlove koji sadrže "password"
+sudo find /etc -type f -name "*.conf" -exec grep -l "password" {} +
 </pre>
