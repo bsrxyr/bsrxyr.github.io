@@ -151,10 +151,10 @@ sudo nano /etc/security/limits.conf
 <br>
 ------REGEX------
 <pre style='color:#cfcfc2;background-color:#232629;'>
-ps aux | grep '^root\b'		//ps aux printa sve procese, grep traži tekst koji slijedi, ^root je regex da root mora biti na početku, \b je kraj riječi(može se stavit i space)
+ps aux | grep '^root\b'		//ps aux printa sve procese, ^root je na početku, \b je kraj riječi(može i space)
 
 //dalje rezultat filtrirat sa | awk '{print $2 $11}'		ispisuje stupac 2 i stupac 11
-//dalje minjat rezultat sa | sed 's/\[//g'		s znači zamijeni, / je delimiter pa unutar njih stoji znak uglate zagrade koju želimo zaminit, a kako je ona specijalni znak onda je treba escapeat sa \], a g je global, tj napravi to ne samo za prvi takav znak nego za sve
+//dalje minjat rezultat sa | sed 's/\[//g'		s znači zamijeni, / je delimiter pa unutar njih char [ koji želimo zaminit, a kako je on spec.znak, treba ga escapeat sa \, g je global tj. napravi to ne samo za prvi takav znak nego za sve
 
 
 //counta broj rezultata
