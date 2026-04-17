@@ -90,8 +90,11 @@ sudo firewall-cmd --permanent --add-forward-port=port=8080:proto=tcp:toport=80
 getenforce			provjera stanja selinuxa
 setenforce 1		postavlja enforcing stanje
 
-sudo semanage port -a -t http_port_t -p tcp 99	//enable webservera na port 99
-sudo semanage port --list | grep 99				//provjera da je dodano u context
+//enable webservera na port 69:
+sudo semanage port -a -t http_port_t -p tcp 69
+
+//provjera da je dodano u context:
+sudo semanage port --list | grep 69
 
 //ako je port 69 zauzet, grepaj port naredbom gore i vidi imeservisa koji ga je zauzea, pa:
 sudo semanage port -m -t imeservisa -p tcp 69
