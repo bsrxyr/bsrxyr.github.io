@@ -39,72 +39,6 @@ sudo chattr -i /etc/resolv.conf
 setenforce 0
 <br>
 <br>
-------05. MAIL------
-<pre style='color:#cfcfc2;background-color:#232629;'>
-1. slaganje DNS-a na mail serveru
-	
-	sudo nano /etc/dnsmasq.conf
-interface=eth0
-bind-interfaces
-domain=domena.local
-mx-host=domena.local,mail.domena.local,50
-
-	sudo nano /etc/hosts
-172.25.250.10 servera.domena.local
-172.25.250.11 serverb.domena.local mail mail.domena.local	//mail exchanger DNS zapis
-172.25.250.9  workstation.domena.local
-
-Pokreni servis!
-
-
-2. slaganje postfixa na mail serveru
-
-		dnf install postfix
-		sudo nano /etc/postfix/main.cf
-myhostname = mail.domena.local
-mydomain = domena.local
-myorigin = $mydomain
-inet_interfaces = all
-mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain	//otkomentiramo 2.liniju
-mynetworks_style = subnet
-mynetworks = 172.25.250.0/24, 127.0.0.0/8
-mail_spool_directory = /var/spool/mail
-smtpd_banner = $myhostname ESMTP $mail_name RHCSA Mikrokvalifikacija	//opcionalno
-
-Pokreni servis!
-
-
-3. na workstationu
-
-		sudo nano /etc/resolv.conf
-search domena.local
-nameserver 172.25.250.10
-
-
-//pa provjeriti mail exchanger zapis
-
-	nslookup -type=mx domena.local
-Name: mail.domena.local
-Address: 172.25.250.11
-
-
-//pa telnetom poslati mail
-
-	telnet mail.domena.local 25
-	MAIL FROM: student@domena.local
-	RCPT TO: mailer@domena.local
-	DATA
-	Evo sadrzaj novog maila
-	.
-	quit
-
-
-4. na mail serveru provjera da je mail stiga
-
-		sudo cat /var/spool/mail/username
-</pre>
-<br>
-<br>
 ------11. SELINUX, FW------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 SELinux i Firewall
@@ -236,7 +170,6 @@ sudo cat /var/log/secure | grep 'Accepted publickey for' | cut -d &quot; &quot; 
 <br>
 <br>
 <br>
-<br>
 ------04. DHCP,DNS------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 DHCP
@@ -246,7 +179,6 @@ group=
 interface=eth0 (ifconfig)
 dhcp-range=x.x.x.x,x.x.x.y,24h
 dhcp-option=3,x.x.x.x adresa routera
-
 <br>
 DNS
 domain needed domain=mojadomena.local
