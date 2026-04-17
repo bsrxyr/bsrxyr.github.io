@@ -66,7 +66,11 @@ curl http://servera:80
 ------FIREWALL------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 sudo systemctl start firewalld
-firewall-cmd --get-active-zones
+
+sudo firewall-cmd --get-active-zones
+sudo firewall-cmd --list-all		//sva pravila za aktivnu zonu
+sudo firewall-cmd --list-ports
+sudo firewall-cmd --list-services
 
 //promjene uvik spremit u permanent!
 sudo firewall-cmd --runtime-to-permanent
