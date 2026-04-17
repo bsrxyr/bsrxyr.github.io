@@ -43,7 +43,7 @@ https://httpd.apache.org/docs/2.4/vhosts/examples.html
 
 //custom port u apacheu:
 nano /etc/httpd/conf/httpd.conf
-					Listen brojporta
+		Listen brojporta
 									
 //custom home folder:
 sudo nano /etc/httpd/conf.d/custom_dir.conf
@@ -58,7 +58,7 @@ chown -R apache:apache /var/custom_dir
 
 //sa klijenta upucat u /etc/hosts adrese da ne dižeš DNS server
 
-//provjera s klijenta
+//provjera s klijenta:
 curl http://servera
 curl http://servera:80
 </pre>
@@ -68,7 +68,7 @@ curl http://servera:80
 sudo systemctl start firewalld
 
 sudo firewall-cmd --get-active-zones
-sudo firewall-cmd --list-all		//sva pravila za aktivnu zonu
+sudo firewall-cmd --list-all	//sva pravila za aktivnu zonu
 sudo firewall-cmd --list-ports
 sudo firewall-cmd --list-services
 
@@ -87,8 +87,8 @@ sudo firewall-cmd --permanent --add-forward-port=port=8080:proto=tcp:toport=80
 <br>
 ------SELINUX------
 <pre style='color:#cfcfc2;background-color:#232629;'>
-getenforce			provjera stanja selinuxa
-setenforce 1		postavlja enforcing stanje
+getenforce		provjera stanja selinuxa
+setenforce 1	postavlja enforcing stanje
 
 //enable webservera na port 69:
 sudo semanage port -a -t http_port_t -p tcp 69
@@ -102,8 +102,8 @@ sudo semanage port -m -t http_port_t -p tcp 69
 sudo semanage port -d -t imeservisa -p tcp 69	//pa ga ovo tek pobrise s imeservisa,al moze i ostat na oba,nije kljucno
 
 
-sudo netstat -tuln							//mrežna provjera da radi na portu 99
-curl IPADRESA:port							//može i ovako
+sudo netstat -tuln			//mrežna provjera da radi na portu 99
+curl IPADRESA:port			//može i ovako
 
 
 
