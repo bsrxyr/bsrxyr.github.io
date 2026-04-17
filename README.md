@@ -11,9 +11,6 @@ https://rha.ole.redhat.com/rha/app/
 <br>
 %ZtrF6Ykh]X=hQV
 <br>
-<br>
-ISHOD 5		EMAIL						5/7
-<br>
 ISHOD 9		SELINUX,FW,PROCESS,REGEX	8/22
 <br>
 <br>
