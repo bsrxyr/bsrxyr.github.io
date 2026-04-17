@@ -106,14 +106,13 @@ sudo netstat -tuln			//mrežna provjera da radi na portu 99
 curl IPADRESA:port			//može i ovako
 
 
-
 //za custom dir webservera:
-
-sudo journalctl -xefu setroubleshoot	//na vrhu napiše grešku i rješenje
-sudo ls -laZ	//pokazuje selinux type (target) foldera na razini sistema
 
 sudo semanage fcontext -a -t httpd_sys_content_t "/var/custom_dir(/.*)?"
 sudo restorecon -R -v "/var/custom_dir"	//uvik ovo nakon promjene fcontexta!
+
+sudo journalctl -xefu setroubleshoot	//na vrhu napiše grešku i rješenje
+sudo ls -laZ	//pokazuje selinux type (target) foldera na razini sistema
 </pre>
 <br>
 ------PROCESI------
@@ -135,7 +134,7 @@ sudo renice -n 19 -p PID
 	
 //Set max number of files "student" can open to 69
 sudo nano /etc/security/limits.conf
-		student    hard    nofile    69
+	student    hard    nofile    69
 
 //provjera: su - student -c "ulimit -n"
 
@@ -146,7 +145,7 @@ sudo nano /etc/security/limits.conf
 
 //Set priority of all "student" run process to 9 trajno
 sudo nano /etc/security/limits.conf
-		student	-	priority	-9
+	student	-	priority	-9
 
 </pre>
 <br>
@@ -154,8 +153,8 @@ sudo nano /etc/security/limits.conf
 <pre style='color:#cfcfc2;background-color:#232629;'>
 ps aux | grep '^root\b'		//ps aux printa sve procese, grep traži tekst koji slijedi, ^root je regex da root mora biti na početku, \b je kraj riječi(može se stavit i space)
 
-//pa se može dalje rezultat filtrirat sa | awk '{print $2 $11}'		ispisuje stupac 2 i stupac 11
-//pa se može minjat rezultat sa | sed 's/\[//g'		s znači zamijeni, / je delimiter pa unutar njih stoji znak uglate zagrade koju želimo zaminit, a kako je ona specijalni znak onda je treba escapeat sa \], a g je global, tj napravi to ne samo za prvi takav znak nego za sve
+//dalje rezultat filtrirat sa | awk '{print $2 $11}'		ispisuje stupac 2 i stupac 11
+//dalje minjat rezultat sa | sed 's/\[//g'		s znači zamijeni, / je delimiter pa unutar njih stoji znak uglate zagrade koju želimo zaminit, a kako je ona specijalni znak onda je treba escapeat sa \], a g je global, tj napravi to ne samo za prvi takav znak nego za sve
 
 
 //counta broj rezultata
@@ -194,8 +193,8 @@ grep -E "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" datoteka.txt
 //brojanje jedinstvenih IP adresa u logovima (-o je bez cijelog retka, samo IP)
 grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" access.log | sort | uniq -c | sort -nr
 
-//sudo cat /var/log/secure | grep 'Accepted publickey for' | cut -d " " -f11 | sort | uniq -c	 ispisat samo ip adrese (tj 11. blok odvojen sa space) i pobrojat
-
+//ispisat samo ip adrese (tj 11. blok odvojen sa space) i pobrojat
+sudo cat /var/log/secure | grep 'Accepted publickey for' | cut -d " " -f11 | sort | uniq -c
 
 
 targeti obično:
