@@ -39,7 +39,6 @@ sudo chattr -i /etc/resolv.conf
 <br>
 ------APACHE------
 <pre style='color:#cfcfc2;background-color:#232629;'>
-
 https://httpd.apache.org/docs/2.4/vhosts/examples.html
 
 //custom port u apacheu:
@@ -64,7 +63,6 @@ curl http://servera
 curl http://servera:80
 </pre>
 <br>
-<br>
 ------FIREWALL------
 <pre style='color:#cfcfc2;background-color:#232629;'>
 sudo systemctl start firewalld
@@ -82,7 +80,6 @@ sudo firewall-cmd --add-port 8080/tcp --zone public
 //forwardaj dolazni promet sa port 8080 na port80
 sudo firewall-cmd --permanent --add-forward-port=port=8080:proto=tcp:toport=80
 </pre>
-<br>
 <br>
 ------SELINUX------
 <pre style='color:#cfcfc2;background-color:#232629;'>
@@ -111,7 +108,6 @@ sudo ls -laZ	//pokazuje selinux type (target) foldera na razini sistema
 sudo semanage fcontext -a -t httpd_sys_content_t "/var/custom_dir(/.*)?"
 sudo restorecon -R -v "/var/custom_dir"	//uvik ovo nakon promjene fcontexta!
 </pre>
-<br>
 <br>
 ------PROCESI------
 <pre style='color:#cfcfc2;background-color:#232629;'>
@@ -154,7 +150,6 @@ sudo nano /etc/security/limits.conf
 sudo nano /etc/security/limits.conf
 		student	-	priority	-9
 </pre>
-<br>
 <br>
 ------REGEX------
 <pre style='color:#cfcfc2;background-color:#232629;'>
