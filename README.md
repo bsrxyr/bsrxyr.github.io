@@ -75,10 +75,10 @@ sudo firewall-cmd --list-services
 //promjene uvik spremit u permanent!
 sudo firewall-cmd --runtime-to-permanent
 
-//propusti webserver
+//propusti webserver (use cockpit)
 sudo firewall-cmd --add-service http --zone public
 
-//propusti webserver kroz port 8080
+//propusti webserver kroz port 8080 (use cockpit)
 sudo firewall-cmd --add-port 8080/tcp --zone public
 
 //forwardaj dolazni promet sa port 8080 na port80
