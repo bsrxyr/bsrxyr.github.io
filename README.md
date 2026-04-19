@@ -1,15 +1,11 @@
 <div># bsrxyr.github.io</div>
 <p><strong>Linux sysadmin quick reference &#128366;</strong></p>
 <br>
-bcerav i
 https://student.algebra.hr
 <br>
-X.X.Va62yvpJ}'x#
 <br>
-bseravi c
 https://rha.ole.redhat.com/rha/app/
 <br>
-%ZtrF6Ykh]X=hQV
 <br>
 <br>
 ISHOD 9		GET	8/22 !!!
